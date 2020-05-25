@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<center>
+    <h1>Nhân viên</h1>
+
+<table border="1" bgcolor="#F3F781">
+<thead>
+    <tr>
+    <th>Name</th>
+    <th>adrress</th>
+    <th>email</th>
+    <th>chức vụ</th>
+    <th>tuổi</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody class=>
+    {% for nhanvien in object_list %}
+    <tr >
+    <td>{{ nhanvien.name }}</td>
+    <td>{{ nhanvien.adrress }}</td>
+    <td>{{ nhanvien.email }}</td>
+    <td>{{ nhanvien.chucvu }}</td>
+    <td>{{ nhanvien.tuoi }}</td>
+    <td><a href="{% url "nhanvien_view" nhanvien.id %}">view</a></td>
+    <td><a href="{% url "nhanvien_update" nhanvien.id %}">update</a></td>
+    <td><a href="{% url "nhanvien_delete" nhanvien.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "nhanvien_create" %}">Create new nhân viên</a>
+</center>
+</body>
+</html>
